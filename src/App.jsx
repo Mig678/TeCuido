@@ -55,7 +55,7 @@ function App() {
             <div className="feature-card">
               <span className="icon">⏰</span>
               <h4>Timely Reminders</h4>
-              <p>Never miss a dose get notified right on time.</p>
+              <p>Never miss a dose, get notified right on time.</p>
             </div>
             <div className="feature-card">
               <span className="icon">📈</span>
