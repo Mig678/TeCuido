@@ -29,7 +29,7 @@ html, body {
 }
 
 .hero {
-  background: linear-gradient(135deg, #1d1d42 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #1f1f2b 0%, #2e3a59 100%);
   padding: 4rem 2rem;
   border-radius: 16px;
   text-align: center;
@@ -38,10 +38,12 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #ffffff;
+  color: #f3f4f6;
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255,255,255,0.05);
 }
+
 
 .card-wrapper {
   display: flex;
@@ -54,23 +56,27 @@ html, body {
    Typography & Text Styling
 ================================= */
 .highlight {
-  color: #38bdf8;
-  font-weight: bold;
-  text-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+  background: linear-gradient(to right, #60a5fa, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;  
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 
 
 .tagline {
   margin-bottom: 2rem;
-  color: #d1d5db; /* light gray for better contrast */
+  color: #e5e7eb;
   font-size: 1.25rem;
   font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
 .description {
   margin-top: 2rem;
-  color: #9ca3af; /* slightly more legible gray */
+  color: #cbd5e1;
   font-size: 1rem;
+  max-width: 600px;
 }
 
 /* ===============================
@@ -90,8 +96,8 @@ html, body {
 }
 
 .btn:hover {
-  background-color: #3367d6;
-  box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
+  background-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
 }
 
 .cta-btn {
