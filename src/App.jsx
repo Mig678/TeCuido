@@ -17,14 +17,12 @@ function App() {
   return (
     <div className="app-container">
       <div className="card-wrapper">
-        
-        <div className="card-container">
+
+        <section className="hero">
           <h1>
             Welcome to <span className="highlight">TeCuido</span>
           </h1>
-          <p className="tagline">
-            Helping you stay on top of your meds, one reminder at a time.
-          </p>
+          <p className="tagline">Never miss a dose</p>
   
           {user ? (
             <>
@@ -33,16 +31,13 @@ function App() {
               <button onClick={logout} className="btn">Sign Out</button>
             </>
           ) : (
-            <>
-              <h2>Please sign in</h2>
-              <button onClick={signIn} className="btn">Sign in with Google</button>
-            </>
+            <button onClick={signIn} className="btn cta-btn">Get Started</button>
           )}
   
           <p className="description">
             This is your personal medication reminder app.
           </p>
-        </div>
+        </section>
   
         <section className="features">
           <h3>How it works</h3>
