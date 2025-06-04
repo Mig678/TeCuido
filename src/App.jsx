@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { auth, signIn, logout } from "./database/firebaseResources";
 import { onAuthStateChanged } from "firebase/auth";
+import { auth, signIn, logout } from "./database/firebaseResources";
+import MedicationManager from "./components/MedicationManager";
 import "./App.css";
 
 function App() {
@@ -59,7 +60,9 @@ function App() {
             </div>
           </div>
         </section>
-  
+
+        {user && <MedicationManager />}
+
       </div>
     </div>
   );
