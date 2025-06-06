@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react';
 import { auth } from '../database/firebaseResources';
 
 export default function Topbar({ onMenuClick }) {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const stored = localStorage.getItem('darkMode');
+    return stored ? stored === 'true' : false;
+  });
   const user = auth.currentUser;
 
   useEffect(() => {
@@ -11,6 +14,7 @@ export default function Topbar({ onMenuClick }) {
     } else {
       document.documentElement.classList.remove('dark');
     }
+    localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
   return (
