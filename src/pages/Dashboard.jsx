@@ -7,17 +7,21 @@ export default function Dashboard() {
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
-    <div className="min-h-screen md:flex">
+    <div className="flex">
       {/* Mobile top bar */}
-      <div className="md:hidden flex items-center bg-gray-900 text-white p-4">
-        <button
-          onClick={toggleSidebar}
-          aria-label="Toggle navigation"
-          className="mr-2"
-        >
-          ☰
-        </button>
-        <span className="text-lg font-bold">TeCuido</span>
+      <div className="min-h-screen md:flex">
+        <div className="md:hidden flex items-center bg-gray-900 text-white p-4">
+          <button
+            onClick={toggleSidebar}
+            aria-label="Toggle navigation"
+            className="mr-2"
+          >
+            =
+          </button>
+          <span className="text-lg font-bold">TeCuido</span>
+        </div>
+      </div>
+
       </div>
 
       {/* Sidebar */}
