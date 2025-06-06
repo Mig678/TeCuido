@@ -14,7 +14,7 @@ export default function Topbar({ onMenuClick }) {
   }, [darkMode]);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-40 flex items-center justify-between bg-white dark:bg-gray-800 shadow px-4 py-3 md:ml-64">
+    <header className="fixed top-0 inset-x-0 z-40 flex items-center justify-between bg-[#0d0d0d] text-[#f5f5dc] shadow px-4 py-3 md:ml-64 transition">
       <div className="flex items-center gap-2">
         <button
           onClick={onMenuClick}
