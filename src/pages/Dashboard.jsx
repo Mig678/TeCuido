@@ -1,20 +1,33 @@
-import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
-import Sidebar from '../components/Sidebar.jsx';
-import Topbar from '../components/Topbar.jsx';
+import { auth, logout } from '../database/firebaseResources';
 
 export default function Dashboard() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const user = auth.currentUser;
+
+  if (!user) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p>Redirecting...</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen flex bg-[#0d0d0d] text-[#f5f5dc]">
-      <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
-      <div className="flex-1 flex flex-col">
-        <Topbar onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="flex-1 mt-16 p-4 overflow-y-auto">
-          <Outlet />
-        </main>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
+      <div className="text-center p-8 bg-white shadow-lg rounded-lg">
+        <img
+          src={user.photoURL}
+          alt="Profile"
+          className="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-indigo-500"
+        />
+        <h1 className="text-3xl font-bold mb-2">Welcome, {user.displayName}</h1>
+        <p className="text-lg text-gray-600 mb-6">{user.email}</p>
+        <button
+          onClick={logout}
+          className="px-6 py-3 rounded-md border border-gray-300 text-gray-700 bg-white hover:bg-gray-100 transition"
+        >
+          Sign Out
+        </button>
       </div>
     </div>
   );
-}
+} 

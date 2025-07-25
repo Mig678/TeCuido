@@ -1,6 +1,8 @@
 /* ===============================
-   Layout Containers
+   Base Styles & Fonts
 ================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -12,24 +14,151 @@ html, body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #121212;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  scroll-behavior: smooth;
+  background: #0f172a;
+  color: #f8fafc;
 }
 
+#root {
+  min-height: 100vh;
+}
 
+/* ===============================
+   Smooth Scrolling & Animations
+================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===============================
+   Custom Scrollbar (Optional)
+================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #14b8a6;
+}
+
+/* ===============================
+   Focus States for Accessibility
+================================= */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 2px;
+}
+
+/* ===============================
+   Loading States
+================================= */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0f172a;
+}
+
+.loading h1 {
+  color: #f8fafc;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* ===============================
+   Dashboard Styles
+================================= */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 2rem;
+}
+
+.dashboard-card {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(20, 184, 166, 0.08);
+  border: 1px solid #475569;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: 1rem auto;
+  border: 3px solid #14b8a6;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #14b8a6 0%, #2dd4bf 100%);
+  color: #f8fafc;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.08);
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #2dd4bf 0%, #14b8a6 100%);
+  box-shadow: 0 8px 20px rgba(20, 184, 166, 0.15);
+}
+
+/* ===============================
+   Responsive Utilities
+================================= */
+@media (max-width: 768px) {
+  .dashboard-card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* ===============================
+   Layout Containers
+================================= */
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: auto;
-  background-color: #121212;
-  color: white;
+  background-color: #0f172a;
+  color: #f8fafc;
   padding: 2rem;
   max-width: 100vw;
 }
 
 .hero {
-  background: linear-gradient(135deg, #1f1f2b 0%, #2e3a59 100%);
+  background: linear-gradient(120deg, #1e293b 60%, #0f172a 100%);
   padding: 4rem 2rem;
   border-radius: 16px;
   text-align: center;
@@ -38,12 +167,11 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #f3f4f6;
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(3px);
-  border: 1px solid rgba(255,255,255,0.05);
+  color: #f8fafc;
+  box-shadow: 0 0 35px rgba(20, 184, 166, 0.10);
+  backdrop-filter: blur(4px);
+  border: 1px solid #334155;
 }
-
 
 .card-wrapper {
   display: flex;
@@ -56,17 +184,16 @@ html, body {
    Typography & Text Styling
 ================================= */
 .highlight {
-  background: linear-gradient(to right, #60a5fa, #38bdf8);
+  background: linear-gradient(to right, #14b8a6, #2dd4bf);
   -webkit-background-clip: text;
   background-clip: text;  
   -webkit-text-fill-color: transparent;
   font-weight: 700;
 }
 
-
 .tagline {
   margin-bottom: 2rem;
-  color: #e5e7eb;
+  color: #cbd5e1;
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.2px;
@@ -75,31 +202,11 @@ html, body {
 .description {
   margin-top: 2rem;
   color: #cbd5e1;
-  font-size: 1rem;
-  max-width: 600px;
 }
 
 /* ===============================
    Buttons
 ================================= */
-
-.btn {
-  padding: 0.75rem 1.5rem;
-  background-color: #4285f4;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #3b82f6;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
-}
-
 .cta-btn {
   margin-top: 1.5rem;
   font-size: 1.2rem;
@@ -121,23 +228,6 @@ html, body {
 /* ===============================
    Images
 ================================= */
-
-.profile-img {
-  border-radius: 50%;
-  width: 80px;
-  margin-top: 1rem;
-}
-
-/* ===============================
-   Legacy Vite/React Styles (optional)
-================================= */
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -180,7 +270,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-
 /* ===============================
    How it works (Features Section)
 ================================= */
@@ -218,6 +307,42 @@ body {
 }
 
 /* ===============================
+   Sleek & Calm Feature Cards
+================================= */
+.feature-calm-card {
+  background: #172033;
+  border-radius: 1.25rem;
+  padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+  box-shadow: 0 2px 12px 0 rgba(16, 24, 40, 0.10);
+  border: 1.5px solid #22304a;
+  transition: transform 0.18s cubic-bezier(.4,2,.3,1), box-shadow 0.18s;
+  text-align: center;
+  min-width: 220px;
+  max-width: 350px;
+  margin: 0 auto;
+}
+.feature-calm-card:hover {
+  box-shadow: 0 4px 18px 0 rgba(16, 24, 40, 0.13);
+}
+
+.feature-icon-calm {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  margin: 0 auto 1.1rem auto;
+  border: 1.5px solid #e5e7eb;
+}
+
+/* Remove glassmorphism and glow styles from feature cards */
+.feature-glass-card, .feature-icon-bg, .drop-shadow-glow {
+  all: unset;
+  display: revert;
+}
+
+/* ===============================
    Responsive Breakpoints
 ================================= */
 
@@ -234,6 +359,10 @@ body {
   .feature-card:nth-child(3) {
     grid-column: 1 / 3;
     justify-self: center;
+  }
+  .feature-calm-card {
+    max-width: 98vw;
+    padding: 1.5rem 0.7rem 1.2rem 0.7rem;
   }
 }
 
@@ -285,5 +414,104 @@ body {
     grid-column: auto;
     justify-self: stretch;
   }
+  .feature-calm-card {
+    max-width: 99vw;
+    padding: 1.1rem 0.3rem 0.8rem 0.3rem;
+    border-radius: 0.9rem;
+  }
+  .feature-icon-calm {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.7rem;
+  }
+}
+
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  14%  { transform: scale(1.15); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.15); }
+  70%  { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+.heart-beat {
+  animation: heartbeat 1.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse-heartbeat {
+  0%   { transform: scale(1); opacity: 0.2; }
+  14%  { transform: scale(1.25); opacity: 0.4; }
+  28%  { transform: scale(1); opacity: 0.2; }
+  42%  { transform: scale(1.25); opacity: 0.4; }
+  70%  { transform: scale(1); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.pulse-heartbeat {
+  animation: pulse-heartbeat 1.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.hero-cta-btn {
+  background: linear-gradient(135deg, #14b8a6, #14b8a6); /* matches text */
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  margin: 0 auto;
+}
+.hero-cta-btn:hover, .hero-cta-btn:focus {
+  background: #3bdfcf;
+  box-shadow: 0 4px 18px 0 rgba(31, 212, 199, 0.13);
+  color: #fff;
+}
+
+.feature-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+  background: #172033;
+  color: #5eead4;
+  border: none;
+  border-radius: 999px;
+  width: 2.7rem;
+  height: 2.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px 0 rgba(94, 234, 212, 0.10);
+  transition: box-shadow 0.18s, background 0.18s, color 0.18s, transform 0.18s;
+  outline: none;
+  cursor: pointer;
+}
+.feature-carousel-arrow.left-0 { left: -1.5rem; }
+.feature-carousel-arrow.right-0 { right: -1.5rem; }
+.feature-carousel-arrow:focus, .feature-carousel-arrow:hover {
+  box-shadow: 0 0 0 4px #5eead4, 0 4px 18px 0 rgba(94, 234, 212, 0.18);
+  background: #101828;
+  color: #14b8a6;
+  transform: scale(1.08);
+}
+@media (max-width: 900px) {
+  .feature-carousel-arrow.left-0 { left: 0.2rem; }
+  .feature-carousel-arrow.right-0 { right: 0.2rem; }
+}
+@media (max-width: 600px) {
+  .feature-carousel-arrow { display: none; }
+}
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
